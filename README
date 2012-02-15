@@ -9,3 +9,7 @@ A sample board has been provided in sample-board.txt. To solve it, run:
 cat sample-board.txt | ruby boggle.rb
 
 This will print out all the words in the dictionary that are playable on the board.
+
+
+
+note: Boggle and Scramble With Friends place a "qu" on a single tile. This program does not support that.
