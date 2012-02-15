@@ -1,16 +1,17 @@
 class Board
   def initialize(state)
-    @state = state
     @xmax = state.size
     @ymax = state[0].size
+    
+    state.each do |row|
+      raise "Board rows are of varying lengths" if row.size != @ymax
+    end
+    
+    @state = state
   end
   
   def [](a, b)
     @state[a][b]
-  end
-  
-  def []=(a, b, x)
-    @state[a][b] = x
   end
   
   def each()
@@ -22,18 +23,18 @@ class Board
   end
   
   def neighbor_iter(x, y)
-    temp = self[x, y]
-    self[x, y] = nil
+    temp = @state[x][y]
+    @state[x][y] = nil
     
     xrange = ([x-1, 0].max)..([x+1, @xmax-1].min)
     yrange = ([y-1, 0].max)..([y+1, @ymax-1].min)
     
     for i in xrange
       for j in yrange
-        yield i, j if self[i, j]
+        yield i, j if @state[i][j]
       end
     end
     
-    self[x, y] = temp
+    @state[x][y] = temp
   end
 end

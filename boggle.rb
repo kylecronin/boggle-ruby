@@ -1,7 +1,5 @@
 require './trie.rb'
 require './board.rb'
-require 'ap'
-
 
 def search(board, pos, dict, prefix)
   words = []
@@ -21,12 +19,13 @@ def search(board, pos, dict, prefix)
 end
 
 
+board = Board.new($stdin.readlines.map {|line| line.scan(/\w/)})
+
 dict = Trie.new()
 File.open('/usr/share/dict/words').each do |line|
   dict.addword(line.chomp.downcase)
 end
 
-board = Board.new($stdin.readlines.map {|line| line.scan(/\w/)})
 
 results = []
 board.each do |x, y|
