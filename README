@@ -1,0 +1,11 @@
+This is a simple implementation of the game Boggle (or Scramble With Friends) in Ruby.
+
+The application itself is boggle.rb. It expects a board as its input on STDIN - the script is not picky about formatting or spacing, just that the word characters on each line be the elements of the board you wish to solve. If there are varying numbers of letters on the lines, an exception is raised.
+
+The script has been hard-coded to expect a dictionary file at /usr/share/dict/words, and will raise an exception if it's not there. Future versions may allow the user to provide the location of a dictionary file as an argument.
+
+A sample board has been provided in sample-board.txt. To solve it, run:
+
+cat sample-board.txt | ruby boggle.rb
+
+This will print out all the words in the dictionary that are playable on the board.
