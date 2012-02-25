@@ -1,5 +1,5 @@
-require './trie.rb'
-require './board.rb'
+require_relative 'trie'
+require_relative 'board'
 
 def search(board, pos, dict, prefix)
   words = []
