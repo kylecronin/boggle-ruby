@@ -19,7 +19,7 @@ def search(board, pos, dict, prefix)
 end
 
 
-board = Board.new($stdin.readlines.map {|line| line.scan(/\w/)})
+board = Board.new($<.readlines.map {|line| line.scan(/\w/)})
 
 dict = Trie.new()
 File.open('/usr/share/dict/words').each do |line|
